@@ -1,2 +1,0 @@
-ssh -L 8080:localhost:8080 root@52.66.216.125 -i "C:\Users\johan\Downloads\smitIntern.txt"
-mkultra
