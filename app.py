@@ -87,7 +87,10 @@ def helloImage():
 
     # Make a prediction
     preds = model.predict(x)
-    # return str(preds)
+    print(str(preds))
+    lister = str(preds)[0]
+    max_idx = np.argmax(lister)
+    print(max_idx)
 
     return {"got image": str(preds)}
 
