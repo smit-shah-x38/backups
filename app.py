@@ -34,7 +34,7 @@ def helloWorld():
 @cross_origin()
 def helloImage():
     # return {"Output": "Hello, image-world!"}
-    url = request.json["url"]
+    # url = request.json["url"]
 
     # headers = {
     #     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
@@ -88,11 +88,18 @@ def helloImage():
     # Make a prediction
     preds = model.predict(x)
     print(str(preds))
-    lister = str(preds)[0]
-    max_idx = np.argmax(lister)
+    lister = np.array(preds[0])
+    probabilities = np.exp(lister) / np.sum(np.exp(lister))
+    max_idx = np.argmax(probabilities)
+    print(type(lister))
+    print(lister)
     print(max_idx)
 
-    return {"got image": str(preds)}
+    return {
+        "got image": str(probabilities),
+        "index": str(max_idx),
+        "max_prob": str(probabilities[max_idx]),
+    }
 
 
 if __name__ == "__main__":
