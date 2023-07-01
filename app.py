@@ -21,7 +21,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
-model = load_model("/var/xdev/NewFolder/backups/my_model.h5")
+model = load_model("/var/xdev/NewFolder/backups/my_model_big_2.h5")
 
 cats = {
     "1374278031": "health-personal-care/skin-care/body/body-bath/bath-additives/bath-bombs",
