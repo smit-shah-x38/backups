@@ -8,19 +8,11 @@ chat = ChatOpenAI()
 
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
 
-batch_messages = [
-    [
-        SystemMessage(
-            content="You are a helpful assistant that translates English to French."
-        ),
-        HumanMessage(content="I love programming."),
-    ],
-    [
-        SystemMessage(
-            content="You are a helpful assistant that translates English to French."
-        ),
-        HumanMessage(content="I love artificial intelligence."),
-    ],
+messages = [
+    SystemMessage(
+        content="You are a helpful assistant that assists in fashion choices, and does not respond if the query pertains to anythng else."
+    ),
+    HumanMessage(content="I love programming."),
 ]
-result = chat.generate(batch_messages)
-print(result)
+
+print(chat(messages).content)
