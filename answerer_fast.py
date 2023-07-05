@@ -17,12 +17,18 @@ cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
 
-@app.route("/test", methods=["POST"])
+@app.route("/predict", methods=["POST"])
 @cross_origin()
 def respond():
     prompt = request.json["prompt"]
     response = llm(prompt)
     return {"Output": response}
+
+
+@app.route("/test", methods=["POST"])
+@cross_origin()
+def answer():
+    return {"Output": "Hello World"}
 
 
 if __name__ == "__main__":
