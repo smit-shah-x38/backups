@@ -1,21 +1,3 @@
-# from langchain.chat_models import ChatOpenAI
-
-# chat = ChatOpenAI(openai_api_key="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")
-
-# from langchain.chat_models import ChatOpenAI
-
-# chat = ChatOpenAI()
-
-# from langchain.schema import AIMessage, HumanMessage, SystemMessage
-
-# messages = [
-#     SystemMessage(
-#         content="You are a helpful assistant that assists in fashion choices, and does not respond if the query pertains to anythng else."
-#     ),
-#     HumanMessage(content="I love programming."),
-# ]
-
-# print(chat(messages).content)
 from flask import Flask, request, jsonify
 import langchain
 from langchain.llms import OpenAI
@@ -28,7 +10,7 @@ app.config["CORS_HEADERS"] = "Content-Type"
 
 llm = OpenAI()
 conversation_history = [
-    "You are a helpful assistant that specializes in fashion shopping. Only answer my questions if they are related to fashion, otherwise answer with Please ask a relevant question"
+    "You are a helpful assistant that specializes in shopping. Only answer my questions if they are related to shopping, otherwise answer with Please ask a relevant question"
 ]
 
 
