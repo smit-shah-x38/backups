@@ -29,9 +29,9 @@ for img_name in os.listdir(img_dir):
 print(face_coords)
 print(df.info)
 
-with open("/var/wd_smit/internal_repos/backups/embeddings_demo.txt", "w+") as f:
-    # write elements of list
-    for items in embeddings:
-        f.write("%s\n" % items)
+# with open("/var/wd_smit/internal_repos/backups/embeddings_demo.txt", "w+") as f:
+#     # write elements of list
+#     for items in embeddings:
+#         f.write("%s\n" % items)
 
-    print("File written successfully")
+#     print("File written successfully")
