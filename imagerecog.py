@@ -14,6 +14,7 @@ img_dir = "/var/wd_smit/internal_repos/backups/images"
 models = ["VGG-Face", "Facenet", "OpenFace", "DeepFace", "Dlib", "ArcFace"]
 embeddings = []
 face_coords = []
+names = []
 
 df = pd.DataFrame({"embedding": [], "facial_area": []})
 
@@ -25,6 +26,10 @@ for img_name in os.listdir(img_dir):
 
     dftemp = pd.DataFrame(embedding)
     df = pd.concat([df, dftemp], ignore_index=True)
+
+    names.append(img_name)
+
+df["Name"] = names
 
 print(face_coords)
 print(df.info)
